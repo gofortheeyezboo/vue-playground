@@ -10,7 +10,7 @@
             screen.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center" v-if="state.players.showPlayer">
+          <div class="player-card text-center" v-if="state.showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -67,23 +67,23 @@
             to add another condition.
           </p>
           <!-- v-if comparing grade and 90 -->
-          <div>
+          <div v-if="state.grade >= 90">
             <p>The grade is 'A'.</p>
           </div>
           <!-- v-else-if comparing grade and 80 -->
-          <div>
+          <div v-else-if="state.grade >= 80">
             <p>The grade is 'B'.</p>
           </div>
-          <!-- v-else-if comparing grade and 70 -->
-          <div>
+          <!-- v-else-else-if comparing grade and 70 -->
+          <div v-else-if="state.grade >= 70"> 
             <p>The grade is 'C'.</p>
           </div>
-          <!-- v-else-if comparing grade and 60 -->
-          <div>
+          <!-- v-else-else-if comparing grade and 60 -->
+          <div v-else-if="state.grade >= 60">
             <p>The grade is 'D'.</p>
           </div>
-          <!-- v-else to display if all the others fail -->
-          <div>
+          <!-- v-else to display else-if all the others fail -->
+          <div v-else-if="state.grade >= 0">
             <p>The grade is 'F'.</p>
           </div>
         </div>
@@ -93,7 +93,7 @@
             Change the v-if directive to a v-show on the "player-card" element
             below.
           </p>
-          <div class="player-card text-center area" v-show="state.player.id">
+          <div class="player-card text-center area" v-show="state.player.name">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -129,7 +129,9 @@ export default {
   setup() {
     const state = reactive({
       //add a property to toggle the player-card here.
+      showPlayer: true,
       //add a property to set the number value here.
+      grade: 100,
       player: {
         photo: "https://robohash.org/D$",
         name: "D$",
