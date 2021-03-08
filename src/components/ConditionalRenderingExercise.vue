@@ -10,7 +10,7 @@
             screen.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="player-card text-center" v-if="state.players.showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
